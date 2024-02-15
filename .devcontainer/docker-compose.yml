@@ -2,6 +2,7 @@ version: '3.8'
 
 services: 
   app:
+    container_name: proxy-beers-app
     build:
       context: .
       dockerfile: Dockerfile
@@ -31,6 +32,7 @@ services:
 
   db:
     image: mariadb:10.4
+    container_name: proxy-beers-db
     restart: unless-stopped
     volumes:
       - mariadb-data:/var/lib/mysql
