@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BeerListRequest;
 use App\Interfaces\BeerRepositoryInterface;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class ProxyController extends Controller
+class BeerController extends Controller
 {
     private BeerRepositoryInterface $beerRepository;
 
@@ -15,13 +16,11 @@ class ProxyController extends Controller
         $this->beerRepository = $beerRepository;
     }
 
-    public function index(Request $request): JsonResponse
+    public function index(BeerListRequest $request): JsonResponse
     {
 
-        // todo: add validation page/per_page
-
-        $page = (int) $request->query('page');
-        $perPage = (int) $request->query('per_page');
+        $page = $request->query('page');
+        $perPage = $request->query('per_page');
 
         return response()->json(
             $this->beerRepository->getBeers(

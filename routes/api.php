@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProxyController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\BeerController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::controller(UserController::class)->group(function () {
+    Route::get('user/login', 'login');
+    Route::get('user/me', 'me');
+    Route::get('user/logout', 'logout');
+    Route::get('user/refresh', 'refresh');
 });
 
-Route::get('beers', [ProxyController::class, 'index']);
-Route::get('beers/{id}', [ProxyController::class, 'show']);
+Route::middleware(['auth:api'])->group(function (){
+    Route::controller(BeerController::class)->group(function () {
+        Route::get('beers', 'index');
+        Route::get('beers/{id}', 'show');
+    });
+});
