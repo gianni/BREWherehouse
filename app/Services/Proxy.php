@@ -3,8 +3,6 @@
 namespace App\Services;
 
 use Exception;
-use GuzzleHttp\Psr7\Message;
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -17,30 +15,33 @@ class Proxy
         $this->config = $config ?? config('proxy');
     }
 
-    protected function callApi(string $url, array $data = []): array
+    protected function call(string $url, array $parameters = []): array
     {
         try {
-            return Http::get($url, $data)->json();
+            return Http::get($url, $parameters)->json();
         } catch (Exception $exception) {
             Log::error("Proxy error trying to call $url", ['exception' => $exception]);
 
             return [
-                'error' => $exception->getMessage()
+                'error' => $exception->getMessage(),
             ];
         }
     }
 
     public function getBeer(int $id)
     {
-        $url = "{$this->config['endpoint']}/beer/{$id}";
+        $url = "{$this->config['endpoint']}/beers/{$id}";
 
-        return $this->callApi($url);
+        return $this->call($url);
     }
 
-    public function getBeers()
+    public function getBeers(?int $page = 1, ?int $perPage = 25)
     {
         $url = "{$this->config['endpoint']}/beers";
 
-        return $this->callApi($url);
+        return $this->call($url, [
+            'page' => $page,
+            'per_page' => $perPage,
+        ]);
     }
 }
