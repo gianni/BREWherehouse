@@ -20,15 +20,18 @@ class ProxyController extends Controller
 
         // todo: add validation page/per_page
 
+        $page = (int) $request->query('page');
+        $perPage = (int) $request->query('per_page');
+
         return response()->json(
             $this->beerRepository->getBeers(
-                $request->query('page'),
-                $request->query('per_page')
+                $page,
+                $perPage
             )
         );
     }
 
-    public function show(string $id)
+    public function show(int $id)
     {
         return response()->json(
             $this->beerRepository->getBeer($id)

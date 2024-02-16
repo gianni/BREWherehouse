@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Log;
 
 class Proxy
 {
-    private $config;
+    private array $config;
+
 
     public function __construct(?array $config = null)
     {
@@ -28,14 +29,14 @@ class Proxy
         }
     }
 
-    public function getBeer(int $id)
+    public function getBeer(int $id): array
     {
         $url = "{$this->config['endpoint']}/beers/{$id}";
 
         return $this->call($url);
     }
 
-    public function getBeers(?int $page = 1, ?int $perPage = 25)
+    public function getBeers(?int $page = 1, ?int $perPage = 25) : array
     {
         $url = "{$this->config['endpoint']}/beers";
 
