@@ -2,8 +2,9 @@
     <div class="bg-gray-100">
     <div class="container mx-auto pt-6 sm:pt-0">
 
-        <div class="w-full mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg text-3xl text-gray-900 bg-yellow-200">
-            Beer 
+        <div class="w-full mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg bg-yellow-200">
+            <div class="text-3xl text-gray-900">BRE<span class="text-red-600">W</span>herehouse</div>
+            <div class="text-lg text-gray-600">Uncover your next sip</div>
         </div>
 
         <div class="w-full mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
