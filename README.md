@@ -55,38 +55,44 @@ JSON Web Tokens for secure and stateless authentication.
    code .
    ```
 4. Start DevContainer:
+   
+   In the VSCode menu
+
+   Riquadro Comandi > DevContainer: Rebuild and reopen in container
 
 5. Install php and npm packages:
 
-    In the terminal of the DevConatainer
+   In the shell of the DevConatainer execute these commands.
 
    ```bash
    composer install
-   ```
-   ```bash
    npm install
    ```
-6. Start Apache and ViteJs server:
 
-   ```bash
-   service apache2 start
-   ```
-
-   ```bash
-   npm run dev
-   ```
-7. Create a .env file:
+6. Create a .env file:
 
    ```bash
    cp .env.example .env
    ```
+
+7. Start Apache and ViteJs server:
+
+   ```bash
+   service apache2 start
+   npm run dev
+   ```
+
+8. Generate keys:
+
+   ```bash
+   php artisan key:generate
+   php artisan jwt:secret
+   ```
+
 8. Execute migration and seed the database:
 
    ```bash
    php artisan migrate
-   ```
-   
-   ```bash
    php artisan db:seed
    ```
 9. Add local domain to the hosts file (root user):
@@ -96,6 +102,7 @@ JSON Web Tokens for secure and stateless authentication.
    ```
 
 10. Point the browser to this url
-    ```bash
-    http://www.brewherehouse.loc
-    ```
+   
+   ```bash
+   http://www.brewherehouse.loc:8080
+   ```
