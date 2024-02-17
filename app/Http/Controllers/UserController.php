@@ -4,17 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginUserRequest;
 use App\Http\Resources\UserResource;
-use App\Interfaces\UserRepositoryInterface;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    private UserRepositoryInterface $userRepository;
-
-    public function __construct(UserRepositoryInterface $userRepository)
+    public function __construct()
     {
-        $this->userRepository = $userRepository;
         $this->middleware('auth:api', ['except' => ['login']]);
     }
 
