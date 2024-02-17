@@ -9,9 +9,9 @@ export default {
     "./node_modules/@themesberg/flowbite/**/*.js"
   ],
   theme: {
-    extend: {},
+    extend: {
+    },
   },
   plugins: [
-      require('@themesberg/flowbite/plugin')
   ],
 }
