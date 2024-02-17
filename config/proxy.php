@@ -2,7 +2,6 @@
 
 return [
     'endpoint' => env('PROXY_ENDPOINT', null),
-    'timeout' => env('PROXY_TIMEOUT', 10),
-    'maxRetries' => env('PROXY_MAX_RETRIES', 3),
-    'waitRetries' => env('PROXY_WAIT_RETRIES', 30000),
+    'items_total'=> env('PROXY_ITEMS_TOTAL', null),
+    'items_per_page'=> env('PROXY_ITEMS_PER_PAGE', 15),
 ];
