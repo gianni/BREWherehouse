@@ -2,10 +2,11 @@
 
 🍺 A Beer catalog featuring a login page and a paginated view of all available beers. 🍻
 
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-enabled-brightgreen)](https://github.com/features/actions)
 [![PHP Test](https://github.com/gianni/beers/actions/workflows/php-test.yml/badge.svg)](https://github.com/gianni/beers/actions/workflows/php-test.yml)
 [![PHPStan](https://github.com/gianni/beers/actions/workflows/phpstan.yml/badge.svg)](https://github.com/gianni/beers/actions/workflows/phpstan.yml)
 
-## Technologies Used
+## Technologies
 
 - [![PHP](https://img.shields.io/badge/PHP-8.2-purple)](https://www.php.net/)
 The 8.2 version of PHP, bringing new features and improvements.
@@ -22,9 +23,10 @@ A delightful PHP Testing Framework with a focus on simplicity.
 - [![JWT Token](https://img.shields.io/badge/JWT%20Token-secure-green)](https://jwt.io/)
 JSON Web Tokens for secure and stateless authentication.
 
+
 ## Features
 
-- 🚀 **User Authentication**: Secure login page for user authentication.
+- 🚀 **User Authentication**: Secure login page for user authentication (JWT).
 - 🍺 **Beer Catalog**: Explore a wide variety of beers with pagination support.
 ## Getting Started
 
