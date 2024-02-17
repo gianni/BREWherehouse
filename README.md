@@ -97,12 +97,12 @@ JSON Web Tokens for secure and stateless authentication.
    ```
 10. Add local domain to the hosts file (root user):
 
-   ```bash
-   echo "127.0.0.1 www.brewherehouse.loc" >> /etc/hosts
-   ```
+      ```bash
+      echo "127.0.0.1 www.brewherehouse.loc" >> /etc/hosts
+      ```
 
 11. Point the browser to this url
    
-   ```bash
-   http://www.brewherehouse.loc:8080
-   ```
+      ```bash
+      http://www.brewherehouse.loc:8080
+      ```
