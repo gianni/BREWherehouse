@@ -42,12 +42,12 @@ JSON Web Tokens for secure and stateless authentication.
 1. Clone the repository:
 
    ```bash
-   git clone git@github.com:gianni/beers.git
+   git clone git@github.com:gianni/BREWherehouse.git
    ```
 2. Move to the directory:
 
    ```bash
-   cd beers
+   cd BREWherehouse
    ```
 3. Open VSCode:
 
@@ -89,19 +89,19 @@ JSON Web Tokens for secure and stateless authentication.
    php artisan jwt:secret
    ```
 
-8. Execute migration and seed the database:
+9. Execute migration and seed the database:
 
    ```bash
    php artisan migrate
    php artisan db:seed
    ```
-9. Add local domain to the hosts file (root user):
+10. Add local domain to the hosts file (root user):
 
    ```bash
    echo "127.0.0.1 www.brewherehouse.loc" >> /etc/hosts
    ```
 
-10. Point the browser to this url
+11. Point the browser to this url
    
    ```bash
    http://www.brewherehouse.loc:8080
