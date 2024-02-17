@@ -22,6 +22,8 @@ The progressive JavaScript framework for building user interfaces.
 A delightful PHP Testing Framework with a focus on simplicity.
 - [![JWT Token](https://img.shields.io/badge/JWT%20Token-secure-green)](https://jwt.io/)
 JSON Web Tokens for secure and stateless authentication.
+- [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-2.2.19-blueviolet)](https://tailwindcss.com/)
+
 
 
 ## Features
