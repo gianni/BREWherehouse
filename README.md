@@ -8,7 +8,7 @@
 ## Technologies Used
 
 - [![PHP](https://img.shields.io/badge/PHP-8.2-purple)](https://www.php.net/)
-The latest version of PHP, bringing new features and improvements.
+The 8.2 version of PHP, bringing new features and improvements.
 - [![Apache2](https://img.shields.io/badge/Apache2-latest-yellow)](https://httpd.apache.org/)
 The web server for serving your PHP application.
 - [![Docker](https://img.shields.io/badge/Docker-latest-blue)](https://www.docker.com/)
