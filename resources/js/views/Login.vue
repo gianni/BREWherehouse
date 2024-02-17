@@ -28,6 +28,10 @@
             (e-mail: root@example.com - password: password)
         </div>
 
+        <div v-if="loginFailed" class="w-full sm:max-w-md text-center p-4 text-gray-500 text-white bg-red-900 sm:rounded-lg">
+            Login failed, check your credentials and retry!
+        </div>
+
     </div>
 </template>
 
@@ -44,6 +48,7 @@
             return {
                 email: '',
                 password: '',
+                loginFailed: false
             };
         },
         methods: {
@@ -63,16 +68,28 @@
                     }
                 );
 
-                const data = await response.json()
+                if(response.status == 200) {
+                    
+                    const data = await response.json()
 
-                /*
-                    Weaky Security
-                    Persist token in LS is vulnerable to XSS attacks
-                    Better use HTTP-only cookies over Https protocol
+                    /*
+                        Weak Security
+                        Persist token in LS is vulnerable to XSS attacks
+                        Better use HTTP-only cookies over Https protocol
                     */
 
-                localStorage.setItem('token', data.authorization.token)
-                this.$router.push('/dashboard')
+                    localStorage.setItem('token', data.authorization.token)
+                    this.$router.push('/dashboard')
+
+                } else {
+                    this.$data.loginFailed=true;
+                    
+                    setTimeout(()=>{
+                        this.$data.loginFailed=false;
+                    },10000)
+
+                    console.error('Login error. Response status: '+response.status)
+                }
             },
         },
     };
