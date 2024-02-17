@@ -10,7 +10,6 @@ class Proxy
 {
     private array $config;
 
-
     public function __construct(?array $config = null)
     {
         $this->config = $config ?? config('proxy');
@@ -36,7 +35,7 @@ class Proxy
         return $this->call($url);
     }
 
-    public function getBeers(?int $page = 1, ?int $perPage = 25) : array
+    public function getBeers(?int $page = 1, ?int $perPage = 25): array
     {
         $url = "{$this->config['endpoint']}/beers";
 

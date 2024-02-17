@@ -15,15 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::controller(UserController::class)->group(function () {
-    Route::get('user/login', 'login');
+    Route::post('user/login', 'login');
     Route::get('user/me', 'me');
     Route::get('user/logout', 'logout');
     Route::get('user/refresh', 'refresh');
 });
 
-Route::middleware(['auth:api'])->group(function (){
+Route::middleware(['auth:api'])->group(function () {
     Route::controller(BeerController::class)->group(function () {
         Route::get('beers', 'index');
         Route::get('beers/{id}', 'show');

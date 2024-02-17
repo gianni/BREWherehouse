@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\AuthController;
 use App\Http\Requests\LoginUserRequest;
 use App\Http\Resources\UserResource;
-use Illuminate\Support\Facades\Auth;
 use App\Interfaces\UserRepositoryInterface;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 
-class UserController extends AuthController
+class UserController extends Controller
 {
-
     private UserRepositoryInterface $userRepository;
 
     public function __construct(UserRepositoryInterface $userRepository)
@@ -38,20 +36,21 @@ class UserController extends AuthController
             'authorization' => [
                 'token' => $token,
                 'type' => 'bearer',
-            ]
+            ],
         ]);
-        
+
     }
 
     public function logout()
     {
         try {
             Auth::logout();
+
             return response()->json([
                 'message' => 'Successfully logged out',
             ]);
-        } catch(Exception $e) {
-            abort(401,'Unauthorized');
+        } catch (Exception $e) {
+            abort(401, 'Unauthorized');
         }
     }
 
@@ -63,10 +62,10 @@ class UserController extends AuthController
                 'authorization' => [
                     'token' => Auth::refresh(),
                     'type' => 'bearer',
-                ]
+                ],
             ]);
-        } catch(Exception $e) {
-            abort(401,'Unauthorized');
+        } catch (Exception $e) {
+            abort(401, 'Unauthorized');
         }
     }
 
@@ -74,8 +73,8 @@ class UserController extends AuthController
     {
         try {
             return new UserResource(Auth::user());
-        } catch(Exception $e) {
-            abort(401,'Unauthorized');
+        } catch (Exception $e) {
+            abort(401, 'Unauthorized');
         }
     }
 }

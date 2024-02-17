@@ -2,14 +2,11 @@
 
 namespace App\Models;
 
-
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use App\Enums\UserTypeEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
@@ -67,7 +64,7 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [
-            'user_id' => $this->id
+            'user_id' => $this->id,
         ];
     }
 }

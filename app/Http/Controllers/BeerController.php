@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BeerListRequest;
 use App\Interfaces\BeerRepositoryInterface;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class BeerController extends Controller
 {
