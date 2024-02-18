@@ -37,40 +37,8 @@ class UserController extends Controller
 
     }
 
-    public function logout()
-    {
-        try {
-            Auth::logout();
-
-            return response()->json([
-                'message' => 'Successfully logged out',
-            ]);
-        } catch (Exception $e) {
-            abort(401, 'Unauthorized');
-        }
-    }
-
-    public function refresh()
-    {
-        try {
-            return response()->json([
-                'user' => new UserResource(Auth::user()),
-                'authorization' => [
-                    'token' => Auth::refresh(),
-                    'type' => 'bearer',
-                ],
-            ]);
-        } catch (Exception $e) {
-            abort(401, 'Unauthorized');
-        }
-    }
-
     public function me()
     {
-        try {
-            return new UserResource(Auth::user());
-        } catch (Exception $e) {
-            abort(401, 'Unauthorized');
-        }
+        return new UserResource(Auth::user());
     }
 }

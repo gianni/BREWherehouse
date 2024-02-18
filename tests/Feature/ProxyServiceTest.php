@@ -8,16 +8,6 @@ describe('Proxy Service', function () {
 
     test('proxy retrives correctly a list of beers', function () {
 
-        // Http::fake([
-        //     config('proxy.endpoint').'/beers' => Http::response(
-        //         [
-
-        //         ],
-        //         200,
-        //         ['Content-Type' => 'application/json']
-        //     )
-        // ]);
-
         $proxy = new Proxy();
         $result = $proxy->getBeers();
         expect($result)->toBeArray();
