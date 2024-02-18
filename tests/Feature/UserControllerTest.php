@@ -3,37 +3,34 @@
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-
 describe('User', function () {
 
     uses(RefreshDatabase::class);
-    
+
     test('as authenticated user can call user login api endpoint', function () {
-        
-        
+
         User::create([
             'name' => 'Mario Rossi',
             'email' => 'mario.rossi@example.com',
-            'password' => '12345678'
+            'password' => '12345678',
         ]);
 
-        
         $this->postJson('/api/user/login', [
             'email' => 'mario.rossi@example.com',
-            'password' => '12345678'
+            'password' => '12345678',
         ])
-        ->assertStatus(200)
-        ->assertJsonStructure([
-            'user',
-            'authorization'=> [
-                'token',
-                'type'
-            ]
-        ]);
+            ->assertStatus(200)
+            ->assertJsonStructure([
+                'user',
+                'authorization' => [
+                    'token',
+                    'type',
+                ],
+            ]);
     });
 
     test('as authenticated user can retrieve his profile', function () {
-        
+
         $user = User::factory()->create();
 
         asAuthenticated($user)
@@ -42,16 +39,16 @@ describe('User', function () {
             ->assertJsonStructure(['data' => [
                 'id',
                 'name',
-                'email'
+                'email',
             ]]);
-        
+
     });
 
     test('as not authenticated user cannot retrieve his profile', function () {
-        
+
         $this->getJson('/api/user/me')
             ->assertStatus(401);
-        
+
     });
 
 });

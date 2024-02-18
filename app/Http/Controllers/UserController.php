@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginUserRequest;
 use App\Http\Resources\UserResource;
-use Exception;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
