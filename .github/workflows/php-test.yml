@@ -12,7 +12,7 @@ jobs:
         image: mysql:8
         env:
           MYSQL_ROOT_PASSWORD: secret
-          MYSQL_DATABASE:  testing
+          MYSQL_DATABASE:  proxy-beers-db
         ## map the "external" 33306 port with the "internal" 3306
         ports:
           - 33306:3306
